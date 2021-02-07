@@ -1,4 +1,5 @@
 import logging
+import employee
 
 # DEBUG: Detailed information, typically of interest only when diagnosing problems.
 
@@ -9,6 +10,8 @@ import logging
 # ERROR: Due to a more serious problem, the software has not been able to perform some function.
 
 # CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
+
+
 
 logging.basicConfig(filename='test.log', level=logging.DEBUG,
                     format='%(asctime)s:%(levelname)s:%(message)s')

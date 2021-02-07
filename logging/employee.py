@@ -1,7 +1,14 @@
 import logging
 
-logging.basicConfig(filename='employee.log', level=logging.INFO,
-                    format='%(levelname)s:%(message)s')
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+formatter = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
+
+file_handler = logging.FileHandler('employee.log')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 class Employee:
@@ -11,7 +18,7 @@ class Employee:
         self.first = first
         self.last = last
 
-        logging.info('Created Employee: {} - {}'.format(self.fullname, self.email))
+        logger.info('Created Employee: {} - {}'.format(self.fullname, self.email))
 
     @property
     def email(self):
@@ -22,6 +29,6 @@ class Employee:
         return '{} {}'.format(self.first, self.last)
 
 
-emp_1 = Employee('Mansour', 'Hassani')
-emp_2 = Employee('Mansour', 'Coder')
-emp_3 = Employee('Mansour', 'Mtali')
+emp_1 = Employee('mansour', 'hassani')
+emp_2 = Employee('mansour', 'hassani')
+emp_3 = Employee('mansour', 'Hassani')

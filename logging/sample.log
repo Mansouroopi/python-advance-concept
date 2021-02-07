@@ -1,0 +1,10 @@
+2021-02-07 18:47:48,607:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "C:\Users\manso\OneDrive\Desktop\works\object-oriented\logging\log-sample.py", line 38, in divide
+    result = x / y
+ZeroDivisionError: division by zero
+2021-02-07 18:48:40,248:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "C:\Users\manso\OneDrive\Desktop\works\object-oriented\logging\log-sample.py", line 38, in divide
+    result = x / y
+ZeroDivisionError: division by zero
