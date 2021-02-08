@@ -21,10 +21,46 @@ class Database:
         return rows
 
 
+    def update(self, name, number, balance, id):
+        self.cursor.execute("UPDATE accounts SET name=?, number=?, balance=? WHERE id=?", (name,number,balance, id))
+        self.conn.commit()
+
+
+    def delete(self, id):
+        self.cursor.execute("DELETE FROM accounts WHERE id=?", (id,))
+        self.conn.commit()
+
+
     def __del__(self):
         self.conn.close()
 
 
+
+class Account(Database):
+    """docstring for Account."""
+
+    def __init__(self, id, databasename):
+        Database.__init__(self, databasename)
+        self.databasename = databasename
+        self.id  = id
+
+    def deposit(self, amount):
+        self.balance =+ amount
+
+    def withdraw(self, amount):
+        if self.balance > amount:
+            self.balance -= amount
+        else:
+            print('no enouph balance')
+
+     def commit(self, id):
+         pass
+
+
+
 connect = Database("accouts.db")
-connect.insert(4, 'Hilali Hassani', 120334920324, 4000)
+connect.insert(11, 'Hilali Hassani', 120334920324, 4000)
+connect.update('Hilali Hassani ABDALLA', 120334920324, 4000, 10)
+connect.delete(10)
+
 print(connect.views())
