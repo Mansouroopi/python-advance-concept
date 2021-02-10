@@ -54,7 +54,8 @@ class Account(Database):
             print('no enouph balance')
 
      def commit(self, id):
-         pass
+         self.cursor.execute("UPDATE accounts SET balance=? WHERE id=?", (balance, id))
+         self.conn.commit()
 
 
 
