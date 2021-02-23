@@ -1,11 +1,9 @@
 
-
 class Person:
 
     def __init__(self, name, age):
         self.age = age
         self.name = name
-
 
     def __str__(self):
         return 'Name is {} and age is {}'.format(self.name, self.age)
@@ -23,12 +21,10 @@ class Person:
         else:
             self._age = value
 
-
     @property
     def name(self):
         print('Getting Name...')
         return self._name
-
 
     @name.setter
     def name(self, value):
